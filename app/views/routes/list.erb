@@ -1,0 +1,24 @@
+<h1>Routes</h1>
+
+<div class="row route-row">
+  <div class="col-xs-2 col-md-1 title">&nbsp;</div>
+  <div class="col-xs-3 title name">Route</div>
+  <div class="col-xs-2 title date">Date</div>
+  <div class="col-xs-2 title setter">Setter</div>
+  <!-- 3 cols left-->
+</div>
+
+<% routes.each_with_index do |route, index| %>
+
+<div class="row route-row">
+  <div class="col-xs-2 col-md-1 rating" style="<%=route.rating_style%>">
+    <%=route.rating%>
+  </div>
+  <div class="col-xs-3 name"><%=route.name%></div>
+  <div class="col-xs-2 date"><%=route.date_set.strftime("%m/%d/%Y")%></div>
+  <div class="col-xs-2 setter"><%=route.setter%></div>
+  <div class="col-xs-1"><a href="/route/<%=index%>">View</a></div>
+  <!-- 2 cols left-->
+</div>
+
+<% end %>

@@ -1,0 +1,11 @@
+<h1>Routes / <%=id%></h1>
+
+<div class="row route">
+  <div class="col-xs-2 col-md-1 rating" style="<%=route.rating_style%>">
+    <%=route.rating%>
+  </div>
+  <div class="col-xs-3 name"><%=route.name%></div>
+  <div class="col-xs-2 date"><%=route.date_set.strftime("%m/%d/%Y")%></div>
+  <div class="col-xs-2 setter"><%=route.setter%></div>
+  <!-- 3 cols left-->
+</div>

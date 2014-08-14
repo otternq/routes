@@ -1,0 +1,22 @@
+<form action="" method="POST">
+
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" value="<%= defined?(route) ? route.name : ''  %>" />
+
+  <label for="rating">Rating</label>
+  <input id="rating" type="text" name="rating" value="<%= defined?(route) ? route.rating : ''  %>" />
+
+  <label for="setter">Setter</label>
+  <input id="setter" type="text" name="setter" value="<%= defined?(route) ? route.setter : ''  %>" />
+
+  <label for="primary">Primary Color</label>
+  <input id="primary" type="text" name="primary_color" value="<%= defined?(route) ? route.primary_color : ''  %>" />
+
+  <label for="secondary">Secondary Color</label>
+  <input id="secondary" type="text" name="secondary_color" value="<%= defined?(route) ? route.secondary_color : ''  %>" />
+
+  <% if defined?(route) %>
+    <input type="hidden" name="route" value="<%= id %>" />
+  <% end %>
+
+</form>
