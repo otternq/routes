@@ -7,7 +7,7 @@ module RoutesControllers
 
     #DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/routes.sqlite")
     #DataMapper.setup(:default, 'postgres://user:password@hostname/database')
-    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost:15432/routes_development')
 
     configure do
       set :site_name, 'Krok Climb'

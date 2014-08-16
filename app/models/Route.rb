@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'dm-core'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost:15432/routes_development')
 
 class Route
 
