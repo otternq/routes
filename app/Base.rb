@@ -5,7 +5,9 @@ module RoutesControllers
 
   class Routes < Sinatra::Base
 
-    DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/routes.sqlite")
+    #DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/routes.sqlite")
+    #DataMapper.setup(:default, 'postgres://user:password@hostname/database')
+    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
     configure do
       set :site_name, 'Krok Climb'

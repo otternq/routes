@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'dm-core'
 
-DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/routes.sqlite")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
 class Route
 
@@ -26,5 +26,5 @@ end
 # Call this when you've defined all your models
 DataMapper.finalize
 
-# automatically create the post table
+# automatically create the Route table
 Route.auto_upgrade!
