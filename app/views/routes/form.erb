@@ -1,22 +1,52 @@
-<form action="" method="POST">
+<form class="form-horizontal" role="form" action="" method="POST">
 
-  <label for="name">Name</label>
-  <input id="name" type="text" name="name" value="<%= defined?(route) ? route.name : ''  %>" />
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-8">
+      <input id="name" class="form-control" type="text" name="name" value="<%= defined?(route) ? route.name : ''  %>" placeholder="Route Name" />
+    </div>
+  </div>
 
-  <label for="rating">Rating</label>
-  <input id="rating" type="text" name="rating" value="<%= defined?(route) ? route.rating : ''  %>" />
+  <div class="form-group">
+    <label for="date" class="col-sm-2 control-label">Date Set</label>
+    <div class="col-sm-8">
+      <input id="date" class="form-control" type="date" name="date" value="<%= defined?(route) ? route.date_set.strftime("%Y-%m-%d") : DateTime.now.strftime("%Y-%m-%d")  %>" placeholder="Route Name" />
+    </div>
+  </div>
 
-  <label for="setter">Setter</label>
-  <input id="setter" type="text" name="setter" value="<%= defined?(route) ? route.setter : ''  %>" />
-
-  <label for="primary">Primary Color</label>
-  <input id="primary" type="text" name="primary_color" value="<%= defined?(route) ? route.primary_color : ''  %>" />
-
-  <label for="secondary">Secondary Color</label>
-  <input id="secondary" type="text" name="secondary_color" value="<%= defined?(route) ? route.secondary_color : ''  %>" />
+  <div class="form-group">
+    <label for="rating" class="col-sm-2 control-label">Rating</label>
+    <div class="col-sm-8">
+      <input id="rating" class="form-control" type="text" name="rating" value="<%= defined?(route) ? route.rating : ''  %>" placeholder="Rating" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="setter" class="col-sm-2 control-label">Setter</label>
+    <div class="col-sm-8">
+      <input id="setter" class="form-control" type="text" name="setter" value="<%= defined?(route) ? route.setter : ''  %>" placeholder="Setter Name" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="primary" class="col-sm-2 control-label">Primary Color</label>
+    <div class="col-sm-8">
+      <input id="primary" class="form-control" type="text" name="primary_color" value="<%= defined?(route) ? route.primary_color : ''  %>" placeholder="Primary Color" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="secondary" class="col-sm-2 control-label">Secondary Color</label>
+    <div class="col-sm-8">
+      <input id="secondary" class="form-control" type="text" name="secondary_color" value="<%= defined?(route) ? route.secondary_color : ''  %>" placeholder="Secondary Color" />
+    </div>
+  </div>
 
   <% if defined?(route) %>
     <input type="hidden" name="route" value="<%= id %>" />
   <% end %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" class="btn btn-primary" value="Save Route!" />
+    </div>
+  </div>
 
 </form>

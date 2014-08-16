@@ -1,5 +1,15 @@
 <h1>Routes</h1>
 
+<div class="alert alert-danger" role="alert">The following routes are out of date:
+<ul>
+<% routes.each_with_index do |route, index| %>
+  <li>
+    <a href="/route/<%=index%>" target="_blank"><%= route.name %></a>
+  </li>
+<% end %>
+</ul>
+</div>
+
 <div class="row route-row">
   <div class="col-xs-2 col-md-1 title">&nbsp;</div>
   <div class="col-xs-3 title name">Route</div>

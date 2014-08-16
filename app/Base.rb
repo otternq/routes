@@ -5,32 +5,44 @@ module RoutesControllers
 
   class Routes < Sinatra::Base
 
+    DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/routes.sqlite")
+
     configure do
       set :site_name, 'Krok Climb'
     end
 
     get '/' do
-
       data = {
-        routes: Route.data
+        routes: Route.all
       }
 
       erb :'routes/list', :layout => :layout, :locals => data
     end
 
     get '/new' do
-
       erb :'routes/form', :layout => :layout
+    end
 
+    post '/new' do
+
+      route = Route.create(
+        :name => params['name'],
+        :rating => params['rating'],
+        :setter => params['setter'],
+        :primary_color => params['primary_color'],
+        :secondary_color => params['secondary_color'],
+        :date_set => params['date']
+      )
+
+      redirect('/route')
     end
 
     get '/edit/:id' do |id|
-
       id = id.to_i
 
       data = {
         id: id,
-        route: Route.data[id]
+        route: Route.get(id)
       }
 
       erb :'routes/form', :layout => :layout, :locals => data
@@ -39,12 +51,11 @@ module RoutesControllers
 
 
     get '/:id' do |id|
-
       id = id.to_i
 
       data = {
         id: id,
-        route: Route.data[id]
+        route: Route.get(id)
       }
 
       erb :'routes/view', :layout => :layout, :locals => data
