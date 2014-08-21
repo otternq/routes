@@ -14,6 +14,5 @@ Installation
 
 ```
 $ bundle install
-$ rake db:install
 $ rake unicorn:start
 ```
