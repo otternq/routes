@@ -5,16 +5,13 @@ module RoutesControllers
 
   class Routes < Sinatra::Base
 
-    #DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/routes.sqlite")
-    #DataMapper.setup(:default, 'postgres://user:password@hostname/database')
-    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost:15432/routes_development')
-
     configure do
       set :site_name, 'Krok Climb'
     end
 
     get '/' do
       data = {
+        oldRoutes: Route.all(:date_set.lt => (DateTime.now - (4 * 30))),
         routes: Route.all
       }
 
@@ -33,10 +30,27 @@ module RoutesControllers
         :setter => params['setter'],
         :primary_color => params['primary_color'],
         :secondary_color => params['secondary_color'],
+        :card_type => params['card_type'],
         :date_set => params['date']
       )
 
       redirect('/route')
+    end
+
+    post '/edit/:id' do |id|
+
+      route = Route.get(id)
+      route.update(
+        :name => params['name'],
+        :rating => params['rating'],
+        :setter => params['setter'],
+        :primary_color => params['primary_color'],
+        :secondary_color => params['secondary_color'],
+        :card_type => params['card_type'],
+        :date_set => params['date']
+      )
+
+      redirect("/route/view/#{id}")
     end
 
     get '/edit/:id' do |id|
@@ -52,15 +66,38 @@ module RoutesControllers
 
 
 
-    get '/:id' do |id|
+    get '/view/:id' do |id|
       id = id.to_i
+
+      route = Route.get(id)
 
       data = {
         id: id,
-        route: Route.get(id)
+        route: route,
+        card: erb(
+          :"routes/card-#{route.card_type}",
+          :layout => nil,
+          :locals => {
+            route: route
+          }
+        )
       }
 
       erb :'routes/view', :layout => :layout, :locals => data
+    end
+
+    get '/card/:id' do |id|
+      id = id.to_i
+
+      route = Route.get(id)
+
+      erb(
+        :"routes/card-#{route.card_type}",
+        :layout => nil,
+        :locals => {
+          route: route
+        }
+      )
     end
 
   end

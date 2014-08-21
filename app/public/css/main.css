@@ -10,11 +10,91 @@
   font-size: 1.5em;
 }
 
-.route-row .rating {
+.route-row .rating-box {
   min-height: 50px;
-  border: solid 5px black;
+  border: solid 5px;
 
   text-align: center;
 
   font-size: 1.5em;
+}
+
+.card-block .card-top-left,
+.card-block .card-top-right,
+.card-block .card-bottom-left,
+.card-block .card-bottom-right {
+  height: 30px;
+  background-color: red;
+}
+
+.card-block .card-top-center,
+.card-block .card-bottom-center {
+  height: 30px;
+  background-color: blue;
+}
+
+.card-block .card-stripe-hor {
+  height: 150px;
+  border-top: solid 50px;
+  border-bottom: solid 50px;
+}
+
+.card-block .card {
+  height: 150px;
+}
+
+.card-stripe .card-top-center {
+  height: 30px;
+  border-top: solid 10px;
+}
+
+.card-stripe .card-top-left {
+  height: 30px;
+  border-top: solid 10px;
+  border-left: solid 10px;
+}
+
+.card-stripe .card-top-right {
+  height: 30px;
+  border-top: solid 10px;
+  border-right: solid 10px;
+}
+
+.card-stripe .card-bottom-center {
+  height: 30px;
+  border-bottom: solid 10px;
+}
+
+.card-stripe .card-bottom-left {
+  height: 30px;
+  border-bottom: solid 10px;
+  border-left: solid 10px;
+}
+
+.card-stripe .card-bottom-right {
+  height: 30px;
+  border-bottom: solid 10px;
+  border-right: solid 10px;
+}
+
+.card-stripe .card-stripe-hor {
+  padding: 10px;
+  height: 150px;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: solid 10px;
+  border-right: solid 10px;
+}
+
+.card-stripe .card {
+  height: 150px;
+  border-top: solid 10px;
+  border-bottom: solid 10px;
+}
+
+.card .name {
+  font-size: 2.4em;
+
+  height: 92px;
+  overflow: hidden;
 }

@@ -1,34 +1,38 @@
 <h1>Routes</h1>
 
+<% if oldRoutes.size > 0 %>
 <div class="alert alert-danger" role="alert">The following routes are out of date:
-<ul>
-<% routes.each_with_index do |route, index| %>
-  <li>
-    <a href="/route/<%=route.id%>" target="_blank"><%= route.name %></a>
-  </li>
-<% end %>
-</ul>
+  <ul>
+  <% oldRoutes.each_with_index do |route, index| %>
+    <li>
+      <a href="/route/<%=route.id%>" target="_blank"><%= route.name %></a>
+    </li>
+  <% end %>
+  </ul>
 </div>
+<% else %>
+<div class="alert alert-info" role="alert">There aren't any old routes</div>
+<% end %>
 
 <div class="row route-row">
   <div class="col-xs-2 col-md-1 title">&nbsp;</div>
-  <div class="col-xs-3 title name">Route</div>
-  <div class="col-xs-2 title date">Date</div>
-  <div class="col-xs-2 title setter">Setter</div>
-  <!-- 3 cols left-->
+  <div class="col-xs-3 title">Route</div>
+  <div class="col-xs-2 title">Rating</div>
+  <div class="col-xs-2 hidden-xs title">Date</div>
+  <div class="col-xs-2 hidden-xs title">Setter</div>
 </div>
 
 <% routes.each_with_index do |route, index| %>
 
 <div class="row route-row">
-  <div class="col-xs-2 col-md-1 rating" style="<%=route.rating_style%>">
-    <%=route.rating%>
+  <div class="col-xs-2 col-md-1 rating-box" style="<%=route.rating_style%>">
+    &nbsp;
   </div>
-  <div class="col-xs-3 name"><%=route.name%></div>
-  <div class="col-xs-2 date"><%=route.date_set.strftime("%m/%d/%Y")%></div>
-  <div class="col-xs-2 setter"><%=route.setter%></div>
-  <div class="col-xs-1"><a href="/route/<%=route.id%>">View</a></div>
-  <!-- 2 cols left-->
+  <div class="col-xs-3"><%=route.name%></div>
+  <div class="col-xs-2"><%=route.rating%></div>
+  <div class="col-xs-2 hidden-xs date"><%=route.date_set.strftime("%m/%d/%Y")%></div>
+  <div class="col-xs-2 hidden-xs setter"><%=route.setter%></div>
+  <div class="col-xs-1"><a href="/route/view/<%=route.id%>">View</a></div>
 </div>
 
 <% end %>

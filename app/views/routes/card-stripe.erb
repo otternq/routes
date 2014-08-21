@@ -1,0 +1,40 @@
+<div class="row card-stripe">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-4 col-md-5 col-md-offset-4 col-lg-5 col-lg-offset-4">
+    <div class="row">
+      <div class="col-xs-1 card-top-left" style="<%=route.card_outer_style%>"></div>
+      <div class="col-xs-9 card-top-center" style="<%=route.card_outer_style%>"></div>
+      <div class="col-xs-1 card-top-right" style="<%=route.card_outer_style%>"></div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-1 card-stripe-hor" style="<%=route.card_outer_style%>"></div>
+      <div class="col-xs-9 card" style="<%=route.card_inner_style%>">
+
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-7 rating"><%=route.date_set.strftime("%m/%d/%Y")%></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 name">
+            <%=route.name%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 setter"><%=route.setter%></div>
+          <div class="col-xs-2 col-xs-offset-3 rating"><%=route.rating%></div>
+        </div>
+
+      </div>
+      <div class="col-xs-1 card-stripe-hor" style="<%=route.card_outer_style%>"></div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-xs-1 card-bottom-left" style="<%=route.card_outer_style%>"></div>
+      <div class="col-xs-9 card-bottom-center" style="<%=route.card_outer_style%>"></div>
+      <div class="col-xs-1 card-bottom-right" style="<%=route.card_outer_style%>"></div>
+    </div>
+  </div>
+</div>

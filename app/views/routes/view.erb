@@ -1,11 +1,71 @@
-<h1>Routes / <%=id%></h1>
+<ol class="breadcrumb">
+  <li><a href="/route">Routes</a></li>
+  <li class="active"><%=id%></li>
+</ol>
+
+<h1><%=route.name%></h1>
+
+<%=card%>
 
 <div class="row route">
-  <div class="col-xs-2 col-md-1 rating" style="<%=route.rating_style%>">
-    <%=route.rating%>
+  <div class="col-sm-4">
+    <b>Route</b>
   </div>
-  <div class="col-xs-3 name"><%=route.name%></div>
-  <div class="col-xs-2 date"><%=route.date_set.strftime("%m/%d/%Y")%></div>
-  <div class="col-xs-2 setter"><%=route.setter%></div>
-  <!-- 3 cols left-->
+  <div class="col-sm-8">
+     <%=route.name%>
+  </div>
+</div>
+
+<div class="row route">
+  <div class="col-sm-4">
+    <b>Rating</b>
+  </div>
+  <div class="col-sm-8">
+     <%=route.rating%>
+  </div>
+</div>
+
+<div class="row route">
+  <div class="col-sm-4">
+    <b>Date</b>
+  </div>
+  <div class="col-sm-8">
+     <%=route.date_set.strftime("%m/%d/%Y")%>
+  </div>
+</div>
+
+<div class="row route">
+  <div class="col-sm-4">
+    <b>Setter</b>
+  </div>
+  <div class="col-sm-8">
+     <%=route.setter%>
+  </div>
+</div>
+
+<div class="row route">
+  <div class="col-sm-4">
+    <b>Primary Color</b>
+  </div>
+  <div class="col-sm-8">
+     <%=route.primary_color%>
+  </div>
+</div>
+
+<div class="row route">
+  <div class="col-sm-4">
+    <b>Secondary Color</b>
+  </div>
+  <div class="col-sm-8">
+    <%=route.secondary_color%>
+  </div>
+</div>
+
+<div class="row route">
+  <div class="col-sm-4">
+    <b>Card Type</b>
+  </div>
+  <div class="col-sm-8">
+     <%=route.card_type%>
+  </div>
 </div>
